@@ -1,43 +1,43 @@
-# Astro Starter Kit: Minimal
+# Jay Lee - Personal AI Workbench
 
-```sh
-npm create astro@latest -- --template minimal
+Astro site for Jay Lee's public-safe enterprise AI adoption portfolio and writing.
+
+Primary URL after GitHub Pages deployment:
+
+```text
+https://jayjoolee.github.io
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Structure
 
 ```text
 /
+├── .github/workflows/deploy.yml
 ├── public/
+│   └── assets/
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command | Action |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start local dev server |
+| `npm run build` | Build production site |
+| `npm run preview` | Preview production build |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Publishing Model
 
-## 🧞 Commands
+This site is the canonical home for public portfolio writing. Longer notes can be syndicated to LinkedIn, Medium, DEV.to, or domestic channels after publication, with this domain as the source of truth.
 
-All commands are run from the root of the project, from a terminal:
+## Content Boundaries
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Use synthetic or public material only.
+- Do not publish employer, customer, or private operational data.
+- Keep company affiliation minimal unless a specific public context requires it.
+- Link public repositories and inspectable artifacts wherever possible.

@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Projects - Jay Lee"
+  description="Public-safe AI adoption projects by Jay Lee, including AI Workflow Audit Kit and human-agent operations prototypes."
+>
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Projects</p>
+        <h1>Artifacts that make the thinking inspectable.</h1>
+      </div>
+      <p>
+        The project page is the bridge between GitHub evidence and the operating story. Public work uses synthetic data only
+        and avoids employer or customer material.
+      </p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>AI Workflow Audit Kit</h3>
+        <p>
+          A public-safe enterprise AI adoption framework for mapping workflows, selecting AI pilot candidates, defining
+          eval gates, and setting responsible capture boundaries.
+        </p>
+        <div class="tag-row">
+          <span class="tag">20/20 evals</span>
+          <span class="tag">6/6 RAG evals</span>
+          <span class="tag">synthetic data</span>
+        </div>
+        <a href="https://github.com/jayjoolee/ai-workflow-audit-kit">Open GitHub repository</a>
+      </article>
+      <article class="card">
+        <h3>Responsible Skill Capture</h3>
+        <p>
+          A boundary pattern for capturing approved process knowledge without turning private employee traces, tone, or
+          identity into the product.
+        </p>
+        <div class="tag-row">
+          <span class="tag">governance</span>
+          <span class="tag">human accountability</span>
+        </div>
+        <a href="https://github.com/jayjoolee/ai-workflow-audit-kit/blob/main/docs/responsible-skill-capture.md">Read the protocol</a>
+      </article>
+      <article class="card">
+        <h3>Loop Lab</h3>
+        <p>
+          A goal-oriented loop runner prototype for collect, draft, evaluate, and revise workflows. Publication remains
+          separate from employer-derived context.
+        </p>
+        <div class="tag-row">
+          <span class="tag">workflow tooling</span>
+          <span class="tag">coming soon</span>
+        </div>
+        <a href="/writing/">Follow build notes</a>
+      </article>
+    </div>
+  </section>
+  <section class="section">
+    <figure class="evidence-panel">
+      <img src="/assets/report-preview.svg" alt="Sample output preview from the AI Workflow Audit Kit" />
+      <figcaption class="panel-caption">
+        A portfolio project should show the output shape, not only the repository name.
+      </figcaption>
+    </figure>
+  </section>
+</BaseLayout>

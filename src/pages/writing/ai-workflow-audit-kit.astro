@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="From workflow descriptions to AI pilot candidates - Jay Lee"
+  description="A build note on the AI Workflow Audit Kit and why enterprise AI adoption should start with workflow ownership, eval gates, and responsible capture boundaries."
+>
+  <article class="article">
+    <p class="eyebrow">Build note / AI Workflow Audit Kit</p>
+    <h1>From workflow descriptions to AI pilot candidates</h1>
+    <p class="lead">
+      The practical failure mode in enterprise AI is rarely a lack of model capability. It is moving from capability to
+      rollout without a clear workflow owner, baseline, risk boundary, or eval gate.
+    </p>
+    <img src="/assets/audit-flow.svg" alt="AI workflow audit process diagram" />
+
+    <h2>The operating question</h2>
+    <p>
+      A useful enterprise AI conversation should not begin with "What can the model do?" It should begin with the work:
+      where it happens, who owns it, what input is safe, where judgment is required, and how value would be measured after a
+      pilot.
+    </p>
+    <p>
+      The AI Workflow Audit Kit is a public-safe attempt to make that middle layer visible. It turns synthetic workflow
+      descriptions into pilot candidates, review gates, KPI recommendations, and adoption roadmaps.
+    </p>
+
+    <h2>What the kit deliberately avoids</h2>
+    <ul>
+      <li>It does not use employer, customer, or personal data.</li>
+      <li>It does not preserve a named person's private style, tone, or identity.</li>
+      <li>It does not treat usage volume as proof of value.</li>
+      <li>It does not promote a demo unless eval boundaries are clear.</li>
+    </ul>
+
+    <h2>What it tries to prove</h2>
+    <p>
+      The artifact is meant to show a working posture for AI Success and enterprise deployment work: map the workflow, define
+      the owner, separate human judgment from machine support, build synthetic eval cases, and connect the pilot to measurable
+      value.
+    </p>
+    <p>
+      Current public proof points include 20/20 portable workflow eval cases, 7/7 safety-critical cases, and 6/6 synthetic
+      RAG eval cases with offline deterministic retrieval and optional OpenAI SDK live mode.
+    </p>
+
+    <h2>Read or run it</h2>
+    <p>
+      The repository is available at
+      <a href="https://github.com/jayjoolee/ai-workflow-audit-kit">github.com/jayjoolee/ai-workflow-audit-kit</a>.
+      The useful entry points are the README, the sample audit, the responsible skill capture protocol, and the RAG eval demo.
+    </p>
+  </article>
+</BaseLayout>

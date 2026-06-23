@@ -1,17 +1,116 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Jay Lee - Enterprise AI Adoption & Human-Agent Work Systems"
+  description="Portfolio and writing by Jay Lee on enterprise AI adoption, workflow audits, eval gates, and human-agent operations."
+>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Enterprise AI adoption / evals / workflow systems</p>
+      <h1>Make AI adoption measurable before it scales.</h1>
+      <p class="lead">
+        I build public-safe tools and field notes for turning messy enterprise workflows into AI pilot candidates, eval gates,
+        owner roles, and value-realization evidence.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="/projects/">View projects</a>
+        <a class="button secondary" href="/writing/">Read notes</a>
+      </div>
+      <div class="metrics" aria-label="Portfolio proof points">
+        <div class="metric">
+          <strong>20/20</strong>
+          <span>portable workflow eval cases passing in the public kit</span>
+        </div>
+        <div class="metric">
+          <strong>6/6</strong>
+          <span>synthetic RAG eval cases with offline deterministic mode</span>
+        </div>
+        <div class="metric">
+          <strong>0</strong>
+          <span>employer or customer data used in public artifacts</span>
+        </div>
+      </div>
+    </div>
+    <figure class="evidence-panel">
+      <img src="/assets/audit-flow.svg" alt="AI workflow audit process from sample workflow documents to adoption roadmap" />
+      <figcaption class="panel-caption">
+        The core pattern: diagnose the workflow, define eval evidence, keep human accountability visible.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Current focus</p>
+        <h2>Human-agent work systems, not generic AI demos.</h2>
+      </div>
+      <p>
+        The work here is built for enterprise conversations where the hard question is not whether AI can answer, but what
+        should change, who owns the step, and what evidence proves readiness.
+      </p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>Workflow audit</h3>
+        <p>Map owners, baselines, sensitivity, pilot candidates, and adoption roadmaps before proposing tools.</p>
+        <div class="tag-row">
+          <span class="tag">AI adoption</span>
+          <span class="tag">pilot scope</span>
+        </div>
+        <a href="/projects/">See the project</a>
+      </article>
+      <article class="card">
+        <h3>Eval gates</h3>
+        <p>Use synthetic fixtures, failure boundaries, and pass/fail criteria to keep demos from becoming unsupported rollout claims.</p>
+        <div class="tag-row">
+          <span class="tag">RAG</span>
+          <span class="tag">evidence</span>
+        </div>
+        <a href="/writing/ai-workflow-audit-kit/">Read the first note</a>
+      </article>
+      <article class="card">
+        <h3>Responsible capture</h3>
+        <p>Separate team-owned process knowledge from private style, identity, or unapproved person-grounded data.</p>
+        <div class="tag-row">
+          <span class="tag">human review</span>
+          <span class="tag">governance</span>
+        </div>
+        <a href="https://github.com/jayjoolee/ai-workflow-audit-kit/blob/main/docs/responsible-skill-capture.md">Open doc</a>
+      </article>
+    </div>
+  </section>
+
+  <div class="quote-band">
+    <section class="section">
+      <p>Do not clone the person. Diagnose the workflow. Prove value before scaling.</p>
+    </section>
+  </div>
+
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Writing</p>
+        <h2>Build notes from the public workbench.</h2>
+      </div>
+      <p>
+        Articles connect code, adoption method, and operating judgment. Each one should point back to a public artifact or
+        a decision pattern that can be inspected.
+      </p>
+    </div>
+    <div class="article-list">
+      <a class="article-row" href="/writing/ai-workflow-audit-kit/">
+        <span class="article-date">Build note</span>
+        <span>
+          <h3>From workflow descriptions to AI pilot candidates</h3>
+          <p>
+            Why the AI Workflow Audit Kit starts with owners, baselines, risk boundaries, and eval evidence instead of a
+            model demo.
+          </p>
+        </span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
