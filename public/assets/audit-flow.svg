@@ -1,48 +1,27 @@
 <svg width="1120" height="360" viewBox="0 0 1120 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">AI Workflow Audit Kit flow</title>
-  <desc id="desc">Workflow input flows through diagnosis, AI fit scoring, responsible capture, eval gates, and adoption roadmap.</desc>
-  <rect width="1120" height="360" rx="18" fill="#0F172A"/>
-  <text x="48" y="62" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">From messy workflow to safe AI pilot</text>
-  <text x="48" y="94" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="16">Diagnose the workflow before choosing the AI.</text>
+  <title id="title">AI workflow audit process</title>
+  <desc id="desc">A monochrome process diagram from source notes to evaluation gate and public boundary.</desc>
+  <rect width="1120" height="360" fill="#F5F4EF"/>
+  <line x1="84" y1="78" x2="84" y2="290" stroke="#D4D3CB" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <rect x="78" y="92" width="12" height="12" fill="#111827"/>
+    <text x="122" y="104" fill="#686868" font-size="16">source</text>
+    <text x="122" y="134" fill="#07090D" font-size="22" font-weight="700">Workflow notes</text>
+    <text x="122" y="164" fill="#686868" font-size="16">Owners, inputs, risks, and context boundaries.</text>
 
-  <g font-family="Inter, Arial, sans-serif">
-    <rect x="48" y="142" width="160" height="92" rx="12" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
-    <text x="76" y="178" fill="#F8FAFC" font-size="18" font-weight="700">Workflow</text>
-    <text x="76" y="204" fill="#CBD5E1" font-size="14">steps, owners,</text>
-    <text x="76" y="224" fill="#CBD5E1" font-size="14">baselines</text>
+    <rect x="78" y="190" width="12" height="12" fill="#111827"/>
+    <rect x="116" y="176" width="480" height="76" fill="#FFFFFF" stroke="#07090D" stroke-width="2"/>
+    <rect x="122" y="182" width="480" height="76" fill="none" stroke="#07090D" stroke-width="2"/>
+    <text x="146" y="206" fill="#686868" font-size="16">evaluation</text>
+    <text x="146" y="236" fill="#07090D" font-size="22" font-weight="700">Small cases before claims</text>
 
-    <path d="M218 188H276" stroke="#94A3B8" stroke-width="3"/>
-    <path d="M268 178L278 188L268 198" stroke="#94A3B8" stroke-width="3"/>
+    <rect x="78" y="284" width="12" height="12" fill="#111827"/>
+    <text x="122" y="296" fill="#686868" font-size="16">boundary</text>
+    <text x="122" y="326" fill="#07090D" font-size="22" font-weight="700">Synthetic public output only</text>
 
-    <rect x="288" y="142" width="160" height="92" rx="12" fill="#1E293B" stroke="#A78BFA" stroke-width="2"/>
-    <text x="316" y="178" fill="#F8FAFC" font-size="18" font-weight="700">AI Fit</text>
-    <text x="316" y="204" fill="#CBD5E1" font-size="14">repeatability,</text>
-    <text x="316" y="224" fill="#CBD5E1" font-size="14">judgment, effort</text>
-
-    <path d="M458 188H516" stroke="#94A3B8" stroke-width="3"/>
-    <path d="M508 178L518 188L508 198" stroke="#94A3B8" stroke-width="3"/>
-
-    <rect x="528" y="142" width="184" height="92" rx="12" fill="#1E293B" stroke="#34D399" stroke-width="2"/>
-    <text x="556" y="178" fill="#F8FAFC" font-size="18" font-weight="700">Skill Capture</text>
-    <text x="556" y="204" fill="#CBD5E1" font-size="14">capability, not</text>
-    <text x="556" y="224" fill="#CBD5E1" font-size="14">persona cloning</text>
-
-    <path d="M722 188H780" stroke="#94A3B8" stroke-width="3"/>
-    <path d="M772 178L782 188L772 198" stroke="#94A3B8" stroke-width="3"/>
-
-    <rect x="792" y="142" width="136" height="92" rx="12" fill="#1E293B" stroke="#FBBF24" stroke-width="2"/>
-    <text x="820" y="178" fill="#F8FAFC" font-size="18" font-weight="700">Eval Gate</text>
-    <text x="820" y="204" fill="#CBD5E1" font-size="14">20/20 cases</text>
-    <text x="820" y="224" fill="#CBD5E1" font-size="14">7/7 safety</text>
-
-    <path d="M938 188H996" stroke="#94A3B8" stroke-width="3"/>
-    <path d="M988 178L998 188L988 198" stroke="#94A3B8" stroke-width="3"/>
-
-    <rect x="1008" y="142" width="64" height="92" rx="12" fill="#1E293B" stroke="#FB7185" stroke-width="2"/>
-    <text x="1024" y="180" fill="#F8FAFC" font-size="16" font-weight="700">Pilot</text>
-    <text x="1024" y="206" fill="#CBD5E1" font-size="13">KPI</text>
-    <text x="1024" y="224" fill="#CBD5E1" font-size="13">roadmap</text>
+    <path d="M650 214H910" stroke="#07090D" stroke-width="2"/>
+    <path d="M890 194L912 214L890 234" stroke="#07090D" stroke-width="2"/>
+    <text x="650" y="174" fill="#07090D" font-size="20" font-weight="700">inspectable experiment</text>
+    <text x="650" y="254" fill="#686868" font-size="16">No private people, employer data, or raw rooms.</text>
   </g>
-
-  <text x="48" y="304" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="14">Synthetic examples only. No employer, customer, employee, or private communication data.</text>
 </svg>

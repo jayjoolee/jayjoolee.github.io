@@ -2,41 +2,105 @@
 import '../styles/global.css';
 
 const {
-  title = 'Jay Lee - Enterprise AI Adoption',
-  description = 'Jay Lee builds public-safe systems for enterprise AI adoption, workflow audit, evals, and human-agent operations.',
+  title = 'Jay Lee - AI Memory and Work Archive',
+  description = "A compact archive of Jay Lee's public-safe notes on AI memory, work systems, and human judgment.",
+  locale = 'en',
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, 'https://jayjoolee.github.io').toString();
+const site = 'https://jayjoolee.github.io';
+const canonical = new URL(Astro.url.pathname, site).toString();
+const socialImage = new URL('/assets/social-card.svg', site).toString();
+const isKorean = locale === 'ko';
+const currentPath = Astro.url.pathname;
+const siteName = 'Jay Lee';
+const themeColor = '#f5f4ef';
+const hasLocalizedAlternate = currentPath === '/' || currentPath === '/ko/';
+const isActive = (href: string) => {
+  if (href === '/') {
+    return currentPath === '/';
+  }
+
+  return currentPath.startsWith(href);
+};
+const navItems = [
+  { href: isKorean ? '/ko/' : '/', label: isKorean ? '홈' : 'Home' },
+  { href: '/projects/', label: isKorean ? '아카이브' : 'Archive' },
+  { href: '/writing/', label: isKorean ? '노트' : 'Notes' },
+  { href: '/now/', label: 'Now' },
+  { href: '/about/', label: isKorean ? '소개' : 'About' },
+  { href: isKorean ? '/' : '/ko/', label: isKorean ? 'English' : '한국어', lang: isKorean ? 'en' : 'ko' },
+  { href: 'https://github.com/jayjoolee', label: 'GitHub', rel: 'me' },
+];
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteName,
+  url: site,
+  sameAs: ['https://github.com/jayjoolee', 'https://www.linkedin.com/in/jay-joowon-lee-0334501a8/'],
+  knowsAbout: [
+    'Small AI tools',
+    'Workflow audit',
+    'AI evaluation',
+    'AI memory systems',
+    'Voice-to-note workflows',
+    'Human-agent work systems',
+  ],
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={isKorean ? 'ko' : 'en'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="author" content="Jay Lee" />
+    <meta name="theme-color" content={themeColor} />
     <link rel="canonical" href={canonical} />
+    {
+      hasLocalizedAlternate && (
+        <>
+          <link rel="alternate" hreflang="en" href={new URL('/', site).toString()} />
+          <link rel="alternate" hreflang="ko" href={new URL('/ko/', site).toString()} />
+          <link rel="alternate" hreflang="x-default" href={new URL('/', site).toString()} />
+        </>
+      )
+    }
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Jay Lee personal archive preview" />
+    <meta property="og:site_name" content="Jay Lee - AI Memory and Work Archive" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#content">Skip to content</a>
+    <a class="skip-link" href="#content">{isKorean ? '본문으로 이동' : 'Skip to content'}</a>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/">Jay Lee</a>
-        <nav class="nav" aria-label="Main navigation">
-          <a href="/projects/">Projects</a>
-          <a href="/writing/">Writing</a>
-          <a href="/about/">About</a>
-          <a href="https://github.com/jayjoolee">GitHub</a>
-          <a href="https://www.linkedin.com/in/jay-joowon-lee-0334501a8/">LinkedIn</a>
+        <a class="brand" href={isKorean ? '/ko/' : '/'}>{siteName}</a>
+        <nav class="nav" aria-label={isKorean ? '주요 내비게이션' : 'Main navigation'}>
+          {
+            navItems.map((item) => (
+              <a
+                href={item.href}
+                aria-current={item.href.startsWith('/') && isActive(item.href) ? 'page' : undefined}
+                lang={item.lang}
+                rel={item.rel}
+              >
+                {item.label}
+              </a>
+            ))
+          }
         </nav>
       </div>
     </header>
@@ -44,9 +108,17 @@ const canonical = new URL(Astro.url.pathname, 'https://jayjoolee.github.io').toS
       <slot />
     </main>
     <footer class="site-footer">
-      <span>Public-safe AI adoption work by Jay Lee.</span>
       <span>
-        <a href="mailto:2joowon@gmail.com">2joowon@gmail.com</a>
+        {isKorean
+          ? 'AI 기억, 회의록, 작업 시스템을 공개 가능한 범위에서 정리한 개인 아카이브입니다.'
+          : 'A public-safe archive of AI memory, transcripts, notes, and work systems.'}
+      </span>
+      <span>
+        <a href="/projects/">{isKorean ? '아카이브' : 'Archive'}</a>
+        <a href="/writing/">{isKorean ? '노트' : 'Notes'}</a>
+        <a href="/now/">Now</a>
+        <a href="/about/">{isKorean ? '소개' : 'About'}</a>
+        <a href="https://github.com/jayjoolee/jayjoolee.github.io">Source</a>
       </span>
     </footer>
   </body>

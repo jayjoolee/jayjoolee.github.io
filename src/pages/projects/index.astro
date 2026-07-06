@@ -1,119 +1,68 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { openSourceItems, workItems } from '../../data/site';
 ---
 
 <BaseLayout
-  title="Projects - Jay Lee"
-  description="Public-safe AI adoption projects by Jay Lee, including AI Workflow Audit Kit and human-agent operations prototypes."
+  title="Archive - Jay Lee"
+  description="Public-safe AI memory, transcript, workflow, and prototype artifacts from Jay Lee."
 >
-  <section class="section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">Projects</p>
-        <h1>Artifacts that make the thinking inspectable.</h1>
-      </div>
+  <section class="section page-hero">
+    <div class="section-header compact-header">
+      <h1>Archive</h1>
       <p>
-        The project page is the bridge between GitHub evidence and the operating story. Public work uses synthetic data only
-        and avoids employer or customer material.
+        Public artifacts and working directions. The list is intentionally small: memory, transcripts, workflow audits, and
+        loops for making AI work inspectable.
       </p>
     </div>
-    <div class="grid">
-      <article class="card">
-        <h3>AI Workflow Audit Kit</h3>
-        <p>
-          A public-safe enterprise AI adoption framework for mapping workflows, selecting AI pilot candidates, defining
-          eval gates, and setting responsible capture boundaries.
-        </p>
-        <div class="tag-row">
-          <span class="tag">20/20 evals</span>
-          <span class="tag">6/6 RAG evals</span>
-          <span class="tag">synthetic data</span>
-        </div>
-        <a href="https://github.com/jayjoolee/ai-workflow-audit-kit">Open GitHub repository</a>
-      </article>
-      <article class="card">
-        <h3>Responsible Skill Capture</h3>
-        <p>
-          A boundary pattern for capturing approved process knowledge without turning private employee traces, tone, or
-          identity into the product.
-        </p>
-        <div class="tag-row">
-          <span class="tag">governance</span>
-          <span class="tag">human accountability</span>
-        </div>
-        <a href="https://github.com/jayjoolee/ai-workflow-audit-kit/blob/main/docs/responsible-skill-capture.md">Read the protocol</a>
-      </article>
-      <article class="card">
-        <h3>Loop Lab</h3>
-        <p>
-          A goal-oriented loop runner prototype for collect, draft, evaluate, and revise workflows. Publication remains
-          separate from employer-derived context.
-        </p>
-        <div class="tag-row">
-          <span class="tag">workflow tooling</span>
-          <span class="tag">coming soon</span>
-        </div>
-        <a href="/writing/">Follow build notes</a>
-      </article>
+    <h2 class="sr-only">Archive list</h2>
+    <div class="archive-timeline">
+      {
+        workItems.map((item) => (
+          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta">
+              <span>{item.kind}</span>
+              <time datetime={item.dateTime}>{item.date}</time>
+            </span>
+            <strong>{item.title}</strong>
+            <p>{item.summary}</p>
+          </a>
+        ))
+      }
     </div>
   </section>
-  <section class="section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">Open-source tools</p>
-        <h2>Small tools, built in the open.</h2>
-      </div>
+  <section class="section compact-section" aria-labelledby="tools-title">
+    <div class="section-header compact-header">
+      <h2 id="tools-title">Small Tools</h2>
+      <p>Open-source utilities that keep the archive connected to shipped code, not just notes.</p>
+    </div>
+    <div class="archive-timeline quiet-timeline">
+      {
+        openSourceItems.map((item) => (
+          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta">
+              <span>{item.kind}</span>
+              <time datetime={item.dateTime}>{item.date}</time>
+            </span>
+            <strong>{item.title}</strong>
+            <p>{item.summary}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+  <section class="section compact-section">
+    <div class="section-header compact-header">
+      <h2>Inspection order</h2>
       <p>
-        Side of the workbench where adoption thinking meets working code: local-first, privacy-respecting utilities anyone
-        can run and inspect.
+        Start with the memory contract if you want the site thesis. Open the workflow kit if you want runnable public proof.
       </p>
     </div>
-    <div class="grid">
-      <article class="card">
-        <h3>photo-trip-timeline</h3>
-        <p>
-          Auto-detects trips from your Apple Photos and generates a shareable Markdown travel timeline. Place names only —
-          your GPS coordinates never leave your Mac.
-        </p>
-        <div class="tag-row">
-          <span class="tag">local-first</span>
-          <span class="tag">privacy</span>
-          <span class="tag">Python CLI</span>
-        </div>
-        <a href="https://github.com/jayjoolee/photo-trip-timeline">Open GitHub repository</a>
-      </article>
-      <article class="card">
-        <h3>claude-voice-memo</h3>
-        <p>
-          Turns any voice recording into a clean speaker-aware transcript plus a key briefing — fully local and private,
-          using Claude Code and on-device Whisper.
-        </p>
-        <div class="tag-row">
-          <span class="tag">on-device STT</span>
-          <span class="tag">Claude Code</span>
-        </div>
-        <a href="https://github.com/jayjoolee/claude-voice-memo">Open GitHub repository</a>
-      </article>
-      <article class="card">
-        <h3>dopamind</h3>
-        <p>
-          An ADHD-friendly learning tool that breaks long-form content into focused, digestible chunks with hooks, key
-          points, and a catch-me-up mode. Bring your own API key.
-        </p>
-        <div class="tag-row">
-          <span class="tag">learning</span>
-          <span class="tag">BYOK</span>
-        </div>
-        <a href="https://github.com/jayjoolee/dopamind">Open GitHub repository</a>
-      </article>
-    </div>
-  </section>
-  <section class="section">
-    <figure class="evidence-panel">
-      <img src="/assets/report-preview.svg" alt="Sample output preview from the AI Workflow Audit Kit" />
-      <figcaption class="panel-caption">
-        A portfolio project should show the output shape, not only the repository name.
-      </figcaption>
-    </figure>
+    <p class="plain-copy">
+      This archive avoids private transcripts, employer context, account data, family or health detail, and unapproved
+      identity traces. Public examples stay synthetic or method-level.
+    </p>
   </section>
 </BaseLayout>

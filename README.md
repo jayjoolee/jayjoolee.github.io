@@ -1,6 +1,6 @@
-# Jay Lee - Personal AI Workbench
+# Jay Lee - AI Memory and Work Archive
 
-Astro site for Jay Lee's public-safe enterprise AI adoption portfolio and writing.
+Astro site for Jay Lee's compact public archive: AI memory, transcript workflows, public-safe notes, and work systems.
 
 Primary URL after GitHub Pages deployment:
 
@@ -33,7 +33,7 @@ https://jayjoolee.github.io
 
 ## Publishing Model
 
-This site is the canonical home for public portfolio writing. Longer notes can be syndicated to LinkedIn, Medium, DEV.to, or domestic channels after publication, with this domain as the source of truth.
+This site is the canonical home for public portfolio writing. It should read like a compact research ledger rather than a consulting brochure: memory first, artifacts second, claims last.
 
 ## Content Boundaries
 

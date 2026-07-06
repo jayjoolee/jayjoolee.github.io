@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const koWorkItems = [
+  {
+    title: 'AI Memory Contract',
+    summary: 'AI가 사람을 흉내 내는 대신, 더 잘 판단하게 돕는 기억 원칙을 정리한 노트입니다.',
+    href: '/writing/ai-memory-contract/',
+  },
+  {
+    title: 'Voice Memo Decision Notes',
+    summary: '실제 녹취나 사적인 대화를 공개하지 않고 음성메모에서 결정과 후속조치를 뽑는 방식입니다.',
+    href: '/writing/voice-memo-to-decision-note/',
+  },
+  {
+    title: 'AI Workflow Audit Kit',
+    summary: '복잡한 워크플로우를 작은 AI 실험 노트와 평가 기준으로 바꾸는 공개 저장소입니다.',
+    href: 'https://github.com/jayjoolee/ai-workflow-audit-kit',
+  },
+];
+
+const koNotes = [
+  {
+    title: 'AI memory needs a human-auditable contract',
+    summary: '숨은 캐시처럼 기억하는 대신, 사람이 검토할 수 있는 출처와 만료 규칙을 먼저 둡니다.',
+    href: '/writing/ai-memory-contract/',
+    label: 'Memory',
+  },
+  {
+    title: 'Turning voice memos into decision notes without leaking the room',
+    summary: '로컬 음성 기록을 의사결정 노트로 바꾸되, 실제 대화와 사람 정보는 공개하지 않습니다.',
+    href: '/writing/voice-memo-to-decision-note/',
+    label: 'Audio',
+  },
+];
+---
+
+<BaseLayout
+  title="Jay Lee - 개인 아카이브"
+  description="Jay Lee의 작은 AI 도구, 공개 가능한 노트, 현재 관심사를 한국어로 짧게 소개하는 페이지."
+  locale="ko"
+>
+  <section class="section page-hero">
+    <div class="section-header compact-header">
+      <h1>한국어 요약</h1>
+      <p>
+        이 사이트는 AI가 사람을 흉내 내는 방향이 아니라, 사람이 더 잘 판단하도록 돕는 기억과 작업 시스템을 다루는
+        개인 아카이브입니다. 공개 가능한 산출물과 방법만 남깁니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section compact-section">
+    <div class="section-header compact-header">
+      <h2>아카이브</h2>
+      <p>긴 설명보다 어떤 것을 만들고 있는지 먼저 보이도록 줄였습니다.</p>
+    </div>
+    <div class="archive-timeline">
+      {
+        koWorkItems.map((item) => (
+          <a class="archive-item" href={item.href}>
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta"><span>작업</span></span>
+            <strong>{item.title}</strong>
+            <p>{item.summary}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section compact-section">
+    <div class="section-header compact-header">
+      <h2>노트</h2>
+      <p>
+        공개 글은 길게 설명하기보다, 어떤 운영 원칙을 배우고 있는지 보여주는 쪽에 가깝습니다.
+      </p>
+    </div>
+    <div class="archive-timeline quiet-timeline">
+      {
+        koNotes.map((note) => (
+          <a class="archive-item" href={note.href}>
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta"><span>{note.label}</span></span>
+            <strong>{note.title}</strong>
+            <p>{note.summary}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section language-band">
+    <h2>공개 범위</h2>
+    <p>
+      회사, 가족, 건강, 금융, 계정, 비공개 대화 정보는 공개하지 않습니다. 공개되는 것은 방법, 합성 예시, 공개
+      저장소, 그리고 생각의 구조입니다.
+    </p>
+    <a class="standalone-link" href="/">English home</a>
+  </section>
+</BaseLayout>

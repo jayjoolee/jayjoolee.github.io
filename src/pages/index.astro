@@ -1,158 +1,104 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { noteLinks, nowItems, openSourceItems, workItems } from '../data/site';
 ---
 
 <BaseLayout
-  title="Jay Lee - Enterprise AI Adoption & Human-Agent Work Systems"
-  description="Portfolio and writing by Jay Lee on enterprise AI adoption, workflow audits, eval gates, and human-agent operations."
+  title="Jay Lee - AI Memory and Work Archive"
+  description="A compact archive of public-safe notes on AI memory, transcripts, work systems, and human judgment."
 >
   <section class="hero">
-    <div>
-      <p class="eyebrow">Enterprise AI adoption / evals / workflow systems</p>
-      <h1>Make AI adoption measurable before it scales.</h1>
-      <p class="lead">
-        I build public-safe tools and field notes for turning messy enterprise workflows into AI pilot candidates, eval gates,
-        owner roles, and value-realization evidence.
-      </p>
-      <div class="actions">
-        <a class="button primary" href="/projects/">View projects</a>
-        <a class="button secondary" href="/writing/">Read notes</a>
-      </div>
-      <div class="metrics" aria-label="Portfolio proof points">
-        <div class="metric">
-          <strong>20/20</strong>
-          <span>portable workflow eval cases passing in the public kit</span>
-        </div>
-        <div class="metric">
-          <strong>6/6</strong>
-          <span>synthetic RAG eval cases with offline deterministic mode</span>
-        </div>
-        <div class="metric">
-          <strong>0</strong>
-          <span>employer or customer data used in public artifacts</span>
-        </div>
-      </div>
-    </div>
-    <figure class="evidence-panel">
-      <img src="/assets/audit-flow.svg" alt="AI workflow audit process from sample workflow documents to adoption roadmap" />
-      <figcaption class="panel-caption">
-        The core pattern: diagnose the workflow, define eval evidence, keep human accountability visible.
-      </figcaption>
-    </figure>
+    <p class="lead">
+      I am interested in AI memory that helps people think better: turning transcripts, notes, and everyday context into
+      insights they can inspect, question, and use.
+    </p>
   </section>
 
-  <section class="section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">Current focus</p>
-        <h2>Human-agent work systems, not generic AI demos.</h2>
-      </div>
+  <section class="section" aria-labelledby="archive-title">
+    <div class="section-header compact-header">
+      <h1 id="archive-title">Archive</h1>
       <p>
-        The work here is built for enterprise conversations where the hard question is not whether AI can answer, but what
-        should change, who owns the step, and what evidence proves readiness.
+        The first object here is the memory contract: AI should not imitate a person. It should help the person notice,
+        compare, and decide better.
       </p>
     </div>
-    <div class="grid">
-      <article class="card">
-        <h3>Workflow audit</h3>
-        <p>Map owners, baselines, sensitivity, pilot candidates, and adoption roadmaps before proposing tools.</p>
-        <div class="tag-row">
-          <span class="tag">AI adoption</span>
-          <span class="tag">pilot scope</span>
-        </div>
-        <a href="/projects/">See the project</a>
-      </article>
-      <article class="card">
-        <h3>Eval gates</h3>
-        <p>Use synthetic fixtures, failure boundaries, and pass/fail criteria to keep demos from becoming unsupported rollout claims.</p>
-        <div class="tag-row">
-          <span class="tag">RAG</span>
-          <span class="tag">evidence</span>
-        </div>
-        <a href="/writing/ai-workflow-audit-kit/">Read the first note</a>
-      </article>
-      <article class="card">
-        <h3>Responsible capture</h3>
-        <p>Separate team-owned process knowledge from private style, identity, or unapproved person-grounded data.</p>
-        <div class="tag-row">
-          <span class="tag">human review</span>
-          <span class="tag">governance</span>
-        </div>
-        <a href="https://github.com/jayjoolee/ai-workflow-audit-kit/blob/main/docs/responsible-skill-capture.md">Open doc</a>
-      </article>
+    <div class="archive-timeline">
+      {
+        workItems.map((item) => (
+          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta">
+              <span>{item.kind}</span>
+              <time datetime={item.dateTime}>{item.date}</time>
+            </span>
+            <strong>{item.title}</strong>
+            <p>{item.summary}</p>
+          </a>
+        ))
+      }
     </div>
   </section>
 
-  <div class="quote-band">
-    <section class="section">
-      <p>Do not clone the person. Diagnose the workflow. Prove value before scaling.</p>
-    </section>
-  </div>
-
-  <section class="section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">Open-source tools</p>
-        <h2>Small tools from the same workbench.</h2>
-      </div>
-      <p>
-        Local-first, privacy-respecting utilities that keep the building muscle honest: shipped code anyone can run,
-        not just frameworks on slides.
-      </p>
+  <section class="section compact-section" aria-labelledby="tools-title">
+    <div class="section-header compact-header">
+      <h2 id="tools-title">Small Tools</h2>
+      <p>Open-source utilities from the same workbench. Small, local-first, and inspectable.</p>
     </div>
-    <div class="grid">
-      <article class="card">
-        <h3>photo-trip-timeline</h3>
-        <p>Auto-detect trips from Apple Photos into a shareable Markdown timeline — GPS never leaves your Mac.</p>
-        <div class="tag-row">
-          <span class="tag">local-first</span>
-          <span class="tag">privacy</span>
-        </div>
-        <a href="https://github.com/jayjoolee/photo-trip-timeline">Open GitHub repository</a>
-      </article>
-      <article class="card">
-        <h3>claude-voice-memo</h3>
-        <p>Voice recording → speaker-aware transcript + key briefing, fully local with on-device Whisper.</p>
-        <div class="tag-row">
-          <span class="tag">on-device STT</span>
-          <span class="tag">Claude Code</span>
-        </div>
-        <a href="https://github.com/jayjoolee/claude-voice-memo">Open GitHub repository</a>
-      </article>
-      <article class="card">
-        <h3>dopamind</h3>
-        <p>ADHD-friendly learning: long content broken into focused chunks with hooks and catch-me-up recaps.</p>
-        <div class="tag-row">
-          <span class="tag">learning</span>
-          <span class="tag">BYOK</span>
-        </div>
-        <a href="https://github.com/jayjoolee/dopamind">Open GitHub repository</a>
-      </article>
+    <div class="archive-timeline quiet-timeline">
+      {
+        openSourceItems.map((item) => (
+          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta">
+              <span>{item.kind}</span>
+              <time datetime={item.dateTime}>{item.date}</time>
+            </span>
+            <strong>{item.title}</strong>
+            <p>{item.summary}</p>
+          </a>
+        ))
+      }
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">Writing</p>
-        <h2>Build notes from the public workbench.</h2>
-      </div>
-      <p>
-        Articles connect code, adoption method, and operating judgment. Each one should point back to a public artifact or
-        a decision pattern that can be inspected.
-      </p>
+  <section class="section compact-section" aria-labelledby="notes-title">
+    <div class="section-header compact-header">
+      <h2 id="notes-title">Notes</h2>
+      <p>Short field notes tied to the public work. No private transcripts, employer material, or personal records.</p>
     </div>
-    <div class="article-list">
-      <a class="article-row" href="/writing/ai-workflow-audit-kit/">
-        <span class="article-date">Build note</span>
-        <span>
-          <h3>From workflow descriptions to AI pilot candidates</h3>
-          <p>
-            Why the AI Workflow Audit Kit starts with owners, baselines, risk boundaries, and eval evidence instead of a
-            model demo.
-          </p>
-        </span>
-      </a>
+    <div class="archive-timeline quiet-timeline">
+      {
+        noteLinks.map((note) => (
+          <a class:list={['archive-item', note.featured && 'featured']} href={note.href}>
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta">
+              <span>{note.label}</span>
+              <time datetime={note.dateTime}>{note.date}</time>
+            </span>
+            <strong>{note.title}</strong>
+            <p>{note.summary}</p>
+          </a>
+        ))
+      }
     </div>
+  </section>
+
+  <section class="section" aria-labelledby="now-title">
+    <div class="plain-panel">
+      <h2 id="now-title">Now</h2>
+      <ul>
+        {nowItems.slice(0, 3).map((item) => <li>{item}</li>)}
+      </ul>
+      <a class="standalone-link" href="/now/">Open Now</a>
+    </div>
+  </section>
+
+  <section class="section language-band" lang="ko">
+    <h2>한국어 요약</h2>
+    <p>
+      이 사이트는 AI가 사람을 흉내 내는 방향이 아니라, 사람이 더 잘 판단하도록 돕는 기억과 작업 시스템을 다루는
+      개인 아카이브입니다.
+    </p>
+    <a class="standalone-link" href="/ko/">한국어 요약 보기</a>
   </section>
 </BaseLayout>

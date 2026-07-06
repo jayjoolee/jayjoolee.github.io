@@ -1,44 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { aboutFacts } from '../data/site';
 ---
 
 <BaseLayout
   title="About - Jay Lee"
-  description="About Jay Lee, an enterprise AI adoption and human-agent work systems practitioner based in Seoul."
+  description="About Jay Lee's public-safe archive of AI memory, notes, transcripts, and work systems."
 >
-  <section class="section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">About</p>
-        <h1>I work on the adoption layer of AI.</h1>
-      </div>
+  <section class="section page-hero">
+    <div class="section-header compact-header">
+      <h1>About</h1>
       <p>
-        My focus is the space between frontier AI capability and real organizational work: workflow discovery, pilot design,
-        eval evidence, governance boundaries, and leader enablement.
+        I work on the ordinary layer where AI meets real work: what gets remembered, what gets checked, what should stay
+        private, and how a messy transcript or note becomes something a person can inspect.
       </p>
     </div>
-    <div class="grid">
-      <article class="card">
-        <h3>Positioning</h3>
-        <p>
-          Enterprise AI adoption, workflow transformation, AI Success, human-agent operations, and responsible capability
-          capture.
-        </p>
-      </article>
-      <article class="card">
-        <h3>Evidence style</h3>
-        <p>
-          Public artifacts should be inspectable: code, docs, synthetic examples, eval cases, and clear boundaries about what
-          is not being claimed.
-        </p>
-      </article>
-      <article class="card">
-        <h3>Contact</h3>
-        <p>
-          Seoul-based. Open to AI adoption, AI Success, workflow systems, and public-safe collaboration conversations.
-        </p>
-        <a href="mailto:2joowon@gmail.com">2joowon@gmail.com</a>
-      </article>
+    <h2 class="sr-only">About facts</h2>
+    <div class="archive-timeline quiet-timeline">
+      {
+        aboutFacts.map((fact) => (
+          <article class="archive-item">
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta"><span>About</span></span>
+            <strong>{fact.title}</strong>
+            <p>{fact.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section compact-section about-panel" aria-labelledby="boundary-title">
+    <h2 id="boundary-title">Public boundary</h2>
+    <p>
+      This site can show methods, synthetic examples, public repositories, and the shape of my thinking. It does not publish
+      private conversations, employer material, family or health details, financial account material, or unapproved identity
+      traces.
+    </p>
+  </section>
+
+  <section class="section contact-section" aria-labelledby="contact-title">
+    <h2 id="contact-title">Links</h2>
+    <div class="contact-links">
+      <a class="standalone-link" href="https://github.com/jayjoolee">GitHub</a>
+      <a class="standalone-link" href="https://www.linkedin.com/in/jay-joowon-lee-0334501a8/">LinkedIn</a>
+      <a class="standalone-link" href="/projects/">Archive</a>
     </div>
   </section>
 </BaseLayout>
