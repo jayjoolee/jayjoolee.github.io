@@ -81,7 +81,7 @@ Spacing derives from a 4px base.
 
 - Max content width uses `--content-width` for archive pages, `--article-width` for long-form articles, and `--article-title-width` for long article titles.
 - Content is left-aligned with a desktop margin near 48px, not centered.
-- Homepage blocks are simple: intro, Archive timeline, Notes timeline, Now, Korean summary.
+- Homepage blocks are simple: intro, Work timeline, Notes timeline, Now, Korean summary.
 - Archive entries use one timeline column on all breakpoints.
 - Mobile width switches to `--mobile-page-left` and `--mobile-content-width`.
 
@@ -120,7 +120,7 @@ Breakpoints are kept as literal media queries because CSS custom properties cann
 ### Header Navigation
 
 - **Structure**: brand link plus landmark `nav`.
-- **Labels**: `Home`, `Archive`, `Notes`, `Now`, `About`, `한국어`, `GitHub`.
+- **Labels**: `Home`, `Work`, `Notes`, `Now`, `About`, `한국어`, `GitHub`.
 - **States**: underlined default links, thicker underline on hover/focus/active.
 - **Accessibility**: visible focus state, real links, and a descriptive nav label.
 - **Tokens**: `--nav-gap`, `--nav-gap-mobile`, `--nav-hit`, `--underline-thin`, `--underline-thick`, `--underline-offset`, `--underline-offset-compact`.

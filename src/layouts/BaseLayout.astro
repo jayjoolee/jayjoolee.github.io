@@ -24,7 +24,7 @@ const isActive = (href: string) => {
 };
 const navItems = [
   { href: isKorean ? '/ko/' : '/', label: isKorean ? '홈' : 'Home' },
-  { href: '/projects/', label: isKorean ? '아카이브' : 'Archive' },
+  { href: '/projects/', label: isKorean ? '작업' : 'Work' },
   { href: '/writing/', label: isKorean ? '노트' : 'Notes' },
   { href: '/now/', label: 'Now' },
   { href: '/about/', label: isKorean ? '소개' : 'About' },
@@ -114,7 +114,7 @@ const structuredData = {
           : 'A public-safe archive of AI memory, transcripts, notes, and work systems.'}
       </span>
       <span>
-        <a href="/projects/">{isKorean ? '아카이브' : 'Archive'}</a>
+        <a href="/projects/">{isKorean ? '작업' : 'Work'}</a>
         <a href="/writing/">{isKorean ? '노트' : 'Notes'}</a>
         <a href="/now/">Now</a>
         <a href="/about/">{isKorean ? '소개' : 'About'}</a>
