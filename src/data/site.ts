@@ -64,6 +64,15 @@ export const workItems = [
 
 export const openSourceItems = [
   {
+    title: 'context-trails',
+    summary: 'Turns local browser history into a reviewable draft of current interests and activity changes, then exports only user-approved context for AI.',
+    href: 'https://github.com/jayjoolee/context-trails',
+    kind: 'Open source',
+    date: 'July 18, 2026',
+    dateTime: '2026-07-18',
+    featured: true,
+  },
+  {
     title: 'photo-trip-timeline',
     summary: 'A local-first Apple Photos utility that turns trips into a shareable Markdown timeline without exporting GPS data.',
     href: 'https://github.com/jayjoolee/photo-trip-timeline',
