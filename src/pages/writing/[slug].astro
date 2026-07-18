@@ -1,0 +1,29 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWritingEntries } from '../../lib/writing';
+
+interface Props {
+  readonly entry: CollectionEntry<'writing'>;
+}
+
+export async function getStaticPaths() {
+  const entries = await getWritingEntries();
+
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} - Jay Lee`} description={entry.data.summary} locale={entry.data.locale}>
+  <article class="article">
+    <p class="kicker">{entry.data.kicker}</p>
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </article>
+</BaseLayout>

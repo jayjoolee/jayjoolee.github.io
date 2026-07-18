@@ -2,8 +2,14 @@
   background: var(--panel);
   border: var(--rule);
   border-radius: var(--article-image-radius);
-  margin: var(--space-8) 0;
+  height: auto;
   padding: var(--space-4);
+  width: var(--full-width);
+}
+
+.article-figure {
+  display: block;
+  margin: var(--space-8) 0;
 }
 
 .site-footer {

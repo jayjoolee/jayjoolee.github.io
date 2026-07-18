@@ -1,0 +1,32 @@
+---
+import type { ArchiveItem } from '../data/types';
+
+type Props = {
+  readonly items: readonly ArchiveItem[];
+  readonly quiet?: boolean;
+  readonly label?: string;
+};
+
+const { items, quiet = false, label } = Astro.props;
+---
+
+<div class:list={['archive-timeline', quiet && 'quiet-timeline']} role="list" aria-label={label}>
+  {
+    items.map((item) => (
+      <a
+        id={item.slug}
+        class:list={['archive-item', item.featured && 'featured']}
+        href={item.href}
+        role="listitem"
+      >
+        <span class="archive-dot" aria-hidden="true"></span>
+        <span class="archive-meta">
+          <span>{item.kind}</span>
+          <time datetime={item.dateTime}>{item.date}</time>
+        </span>
+        <strong>{item.title}</strong>
+        <p>{item.summary}</p>
+      </a>
+    ))
+  }
+</div>

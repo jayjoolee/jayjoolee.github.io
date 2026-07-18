@@ -1,93 +1,48 @@
 ---
+import ArchiveTimeline from '../components/ArchiveTimeline.astro';
+import GardenIndex from '../components/GardenIndex.astro';
+import { gardenPaths, latestTrailBase, nowGroups } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { noteLinks, nowItems, openSourceItems, workItems } from '../data/site';
+import { buildArchiveTrail, getWritingItems, withWritingCount } from '../lib/writing';
+
+const writingItems = await getWritingItems();
+const latestTrail = buildArchiveTrail(latestTrailBase, writingItems, 7);
+const archivePaths = withWritingCount(gardenPaths, `${writingItems.length} notes`);
 ---
 
 <BaseLayout
-  title="Jay Lee - AI Memory and Work Archive"
-  description="A compact archive of public-safe notes on AI memory, transcripts, work systems, and human judgment."
+  title="Jay Lee - Personal Archive"
+  description="Jay Lee's living archive of work, GitHub activity, notes, reading, places, career, and current interests."
 >
   <section class="hero">
     <p class="lead">
-      I am interested in AI memory that helps people think better: turning transcripts, notes, and everyday context into
-      insights they can inspect, question, and use.
+      I’m Jay, an HRD practitioner and builder. This is a living archive of what I make, read, learn, and notice—mostly
+      around AI, work, and the systems underneath both.
     </p>
   </section>
 
-  <section class="section" aria-labelledby="work-title">
+  <section class="section" aria-labelledby="trail-title">
     <div class="section-header compact-header">
-      <h1 id="work-title">Work</h1>
-      <p>
-        The first object here is the memory contract: AI should not imitate a person. It should help the person notice,
-        compare, and decide better.
-      </p>
+      <h1 id="trail-title">Latest Trail</h1>
+      <p>Recent code, notes, and learning in one chronology. The labels change because the person behind the work does too.</p>
     </div>
-    <div class="archive-timeline">
-      {
-        workItems.map((item) => (
-          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta">
-              <span>{item.kind}</span>
-              <time datetime={item.dateTime}>{item.date}</time>
-            </span>
-            <strong>{item.title}</strong>
-            <p>{item.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <ArchiveTimeline items={latestTrail} label="Latest archive trail" />
   </section>
 
-  <section class="section compact-section" aria-labelledby="tools-title">
+  <section class="section compact-section" aria-labelledby="garden-title">
     <div class="section-header compact-header">
-      <h2 id="tools-title">Small Tools</h2>
-      <p>Open-source utilities from the same workbench. Small, local-first, and inspectable.</p>
+      <h2 id="garden-title">Garden</h2>
+      <p>Four ways into the archive, from public notes to the books and places that changed a question.</p>
     </div>
-    <div class="archive-timeline quiet-timeline">
-      {
-        openSourceItems.map((item) => (
-          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta">
-              <span>{item.kind}</span>
-              <time datetime={item.dateTime}>{item.date}</time>
-            </span>
-            <strong>{item.title}</strong>
-            <p>{item.summary}</p>
-          </a>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="section compact-section" aria-labelledby="notes-title">
-    <div class="section-header compact-header">
-      <h2 id="notes-title">Notes</h2>
-      <p>Short field notes tied to the public work. No private transcripts, employer material, or personal records.</p>
-    </div>
-    <div class="archive-timeline quiet-timeline">
-      {
-        noteLinks.map((note) => (
-          <a class:list={['archive-item', note.featured && 'featured']} href={note.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta">
-              <span>{note.label}</span>
-              <time datetime={note.dateTime}>{note.date}</time>
-            </span>
-            <strong>{note.title}</strong>
-            <p>{note.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <GardenIndex paths={archivePaths} />
+    <a class="standalone-link" href="/garden/">Open the Garden</a>
   </section>
 
   <section class="section" aria-labelledby="now-title">
     <div class="plain-panel">
-      <h2 id="now-title">Now</h2>
+      <h2 id="now-title">Now · July 2026</h2>
       <ul>
-        {nowItems.slice(0, 3).map((item) => <li>{item}</li>)}
+        {nowGroups[0].items.map((item) => <li>{item}</li>)}
       </ul>
       <a class="standalone-link" href="/now/">Open Now</a>
     </div>
@@ -95,10 +50,7 @@ import { noteLinks, nowItems, openSourceItems, workItems } from '../data/site';
 
   <section class="section language-band" lang="ko">
     <h2>한국어 요약</h2>
-    <p>
-      이 사이트는 AI가 사람을 흉내 내는 방향이 아니라, 사람이 더 잘 판단하도록 돕는 기억과 작업 시스템을 다루는
-      개인 아카이브입니다.
-    </p>
+    <p>작업만 보여주는 포트폴리오가 아니라, 무엇을 만들고 읽고 배우고 궁금해하는지 함께 쌓아가는 개인 아카이브입니다.</p>
     <a class="standalone-link" href="/ko/">한국어 요약 보기</a>
   </section>
 </BaseLayout>

@@ -1,18 +1,18 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Jay Lee AI memory and work archive</title>
-  <desc id="desc">Social preview card for Jay Lee's public-safe archive of AI memory, transcripts, and work systems.</desc>
+  <title id="title">Jay Lee personal archive</title>
+  <desc id="desc">Social preview card for Jay Lee's living archive of work, learning, places, and changing questions.</desc>
   <rect width="1200" height="630" fill="#F5F4EF"/>
   <text x="72" y="94" fill="#07090D" font-family="Georgia, Times New Roman, serif" font-size="46">Jay Lee</text>
-  <text x="72" y="148" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">Home   Archive   Notes   Now   About</text>
-  <text x="72" y="238" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700">AI memory should help judgment,</text>
-  <text x="72" y="278" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700">not imitate the person.</text>
+  <text x="72" y="148" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">Home   Garden   Work   Now   About</text>
+  <text x="72" y="238" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700">Work, learning, places,</text>
+  <text x="72" y="278" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700">and changing questions.</text>
   <line x1="82" y1="338" x2="82" y2="516" stroke="#D4D3CB" stroke-width="2"/>
   <rect x="72" y="366" width="14" height="14" fill="#111827"/>
   <rect x="116" y="344" width="522" height="82" fill="#FFFFFF" stroke="#07090D" stroke-width="2"/>
   <rect x="122" y="350" width="522" height="82" fill="none" stroke="#07090D" stroke-width="2"/>
-  <text x="142" y="379" fill="#686868" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Memory system   June 29, 2026</text>
-  <text x="142" y="409" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">AI Memory Contract</text>
+  <text x="142" y="379" fill="#686868" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Build   July 18, 2026</text>
+  <text x="142" y="409" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">Context Trails</text>
   <rect x="72" y="462" width="14" height="14" fill="#111827"/>
-  <text x="116" y="468" fill="#686868" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Agent workflow   June 27, 2026</text>
-  <text x="116" y="498" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">Voice Memo Decision Notes</text>
+  <text x="116" y="468" fill="#686868" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Learning   July 8, 2026</text>
+  <text x="116" y="498" fill="#07090D" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">Turn-taking, waiting, and looking together</text>
 </svg>

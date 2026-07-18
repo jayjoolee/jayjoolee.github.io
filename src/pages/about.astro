@@ -1,21 +1,22 @@
 ---
+import ArchiveTimeline from '../components/ArchiveTimeline.astro';
+import { aboutFacts, careerItems } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { aboutFacts } from '../data/site';
 ---
 
 <BaseLayout
   title="About - Jay Lee"
-  description="About Jay Lee's public-safe archive of AI memory, notes, transcripts, and work systems."
+  description="About Jay Lee, an HRD practitioner and builder keeping a living archive of work, learning, and questions."
 >
   <section class="section page-hero">
     <div class="section-header compact-header">
       <h1>About</h1>
       <p>
-        I work on the ordinary layer where AI meets real work: what gets remembered, what gets checked, what should stay
-        private, and how a messy transcript or note becomes something a person can inspect.
+        I’m Jay Lee, an HRD practitioner and builder in South Korea. I work where workplace learning meets AI education,
+        and I like turning ambiguous questions into small systems people can inspect and improve.
       </p>
     </div>
-    <h2 class="sr-only">About facts</h2>
+    <h2 class="sr-only">About Jay</h2>
     <div class="archive-timeline quiet-timeline">
       {
         aboutFacts.map((fact) => (
@@ -30,21 +31,29 @@ import { aboutFacts } from '../data/site';
     </div>
   </section>
 
+  <section class="section compact-section" aria-labelledby="career-preview-title">
+    <div class="section-header compact-header">
+      <h2 id="career-preview-title">Career & Education</h2>
+      <p>A short public timeline, without internal projects or private workplace detail.</p>
+    </div>
+    <ArchiveTimeline items={careerItems.slice(0, 2)} quiet label="Career preview" />
+    <a class="standalone-link" href="/career/">Open the full timeline</a>
+  </section>
+
   <section class="section compact-section about-panel" aria-labelledby="boundary-title">
-    <h2 id="boundary-title">Public boundary</h2>
+    <h2 id="boundary-title">A simple boundary</h2>
     <p>
-      This site can show methods, synthetic examples, public repositories, and the shape of my thinking. It does not publish
-      private conversations, employer material, family or health details, financial account material, or unapproved identity
-      traces.
+      This archive can show public work, résumé-level facts, broad places, and the shape of my thinking. It leaves private
+      conversations, internal employer material, family, health, finances, accounts, and exact location out.
     </p>
   </section>
 
   <section class="section contact-section" aria-labelledby="contact-title">
-    <h2 id="contact-title">Links</h2>
+    <h2 id="contact-title">Elsewhere</h2>
     <div class="contact-links">
       <a class="standalone-link" href="https://github.com/jayjoolee">GitHub</a>
       <a class="standalone-link" href="https://www.linkedin.com/in/jay-joowon-lee-0334501a8/">LinkedIn</a>
-      <a class="standalone-link" href="/projects/">Work</a>
+      <a class="standalone-link" href="/garden/">Garden</a>
     </div>
   </section>
 </BaseLayout>

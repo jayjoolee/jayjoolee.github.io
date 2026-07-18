@@ -1,68 +1,38 @@
 ---
+import ArchiveTimeline from '../../components/ArchiveTimeline.astro';
+import { githubUpdates, publicWork } from '../../data/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { openSourceItems, workItems } from '../../data/site';
 ---
 
 <BaseLayout
   title="Work - Jay Lee"
-  description="Public-safe AI memory, transcript, workflow, and prototype artifacts from Jay Lee."
+  description="Public repositories, small tools, and recent GitHub updates from Jay Lee."
 >
   <section class="section page-hero">
     <div class="section-header compact-header">
       <h1>Work</h1>
       <p>
-        Public artifacts and working directions. The list is intentionally small: memory, transcripts, workflow audits, and
-        loops for making AI work inspectable.
+        Small public tools for learning, memory, and inspectable AI work. The repository is the artifact; the commit trail
+        shows how it changed.
       </p>
     </div>
-    <h2 class="sr-only">Work list</h2>
-    <div class="archive-timeline">
-      {
-        workItems.map((item) => (
-          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta">
-              <span>{item.kind}</span>
-              <time datetime={item.dateTime}>{item.date}</time>
-            </span>
-            <strong>{item.title}</strong>
-            <p>{item.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <h2 class="sr-only">Public work</h2>
+    <ArchiveTimeline items={publicWork} label="Public work" />
   </section>
-  <section class="section compact-section" aria-labelledby="tools-title">
+
+  <section class="section compact-section" aria-labelledby="github-title">
     <div class="section-header compact-header">
-      <h2 id="tools-title">Small Tools</h2>
-      <p>Open-source utilities that keep the archive connected to shipped code, not just notes.</p>
+      <h2 id="github-title">Recent GitHub Updates</h2>
+      <p>Selected public commits, linked to the exact change rather than summarized as a generic contribution count.</p>
     </div>
-    <div class="archive-timeline quiet-timeline">
-      {
-        openSourceItems.map((item) => (
-          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta">
-              <span>{item.kind}</span>
-              <time datetime={item.dateTime}>{item.date}</time>
-            </span>
-            <strong>{item.title}</strong>
-            <p>{item.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <ArchiveTimeline items={githubUpdates} quiet label="Recent GitHub updates" />
   </section>
-  <section class="section compact-section">
-    <div class="section-header compact-header">
-      <h2>Inspection order</h2>
-      <p>
-        Start with the memory contract if you want the site thesis. Open the workflow kit if you want runnable public proof.
-      </p>
-    </div>
-    <p class="plain-copy">
-      This archive avoids private transcripts, employer context, account data, family or health detail, and unapproved
-      identity traces. Public examples stay synthetic or method-level.
+
+  <section class="section compact-section about-panel" aria-labelledby="work-context-title">
+    <h2 id="work-context-title">The work around the code</h2>
+    <p>
+      My day-to-day background is HRD and AI education. The public repositories are where those questions become small,
+      inspectable experiments. <a href="/career/">See the career timeline.</a>
     </p>
   </section>
 </BaseLayout>

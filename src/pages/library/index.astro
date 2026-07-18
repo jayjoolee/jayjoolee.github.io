@@ -1,0 +1,30 @@
+---
+import ArchiveTimeline from '../../components/ArchiveTimeline.astro';
+import { learningItems } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Library - Jay Lee"
+  description="Books, lectures, videos, and study packs Jay Lee has actually processed."
+>
+  <section class="section page-hero">
+    <div class="section-header compact-header">
+      <h1>Library</h1>
+      <p>
+        Books, lectures, videos, and study packs I have actually worked through. “In progress” stays in progress; a summary
+        does not get promoted into a finished book.
+      </p>
+    </div>
+    <h2 class="sr-only">Library entries</h2>
+    <ArchiveTimeline items={learningItems} label="Library entries" />
+  </section>
+
+  <section class="section compact-section about-panel" aria-labelledby="library-method-title">
+    <h2 id="library-method-title">How this shelf works</h2>
+    <p>
+      I keep the source type, the date I processed it, and the question it changed. The list starts small on purpose and
+      grows only from real reading or learning traces.
+    </p>
+  </section>
+</BaseLayout>

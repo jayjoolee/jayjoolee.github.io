@@ -34,15 +34,10 @@
   padding: var(--timeline-entry-y) var(--timeline-entry-x);
   position: relative;
   text-decoration: none;
-  transition:
-    background-color var(--motion-fast) var(--ease-standard),
-    box-shadow var(--motion-fast) var(--ease-standard),
-    transform var(--motion-fast) var(--ease-standard);
 }
 
 article.archive-item {
   text-decoration: none;
-  transition: none;
 }
 
 .archive-dot {
@@ -102,8 +97,7 @@ a.archive-item:not(.featured):focus-visible {
 
 a.archive-item.featured:hover,
 a.archive-item.featured:focus-visible {
-  box-shadow: var(--shadow-featured-hover);
-  transform: translate(var(--hover-lift), var(--hover-lift));
+  background: var(--panel-hover);
 }
 
 .quiet-timeline .archive-item.featured {

@@ -2,9 +2,9 @@
 
 ## 1. Atmosphere & Identity
 
-This site is a compact personal archive for AI memory, transcript workflows, and public-safe work systems. It should feel like a research ledger rather than a portfolio deck: narrow, quiet, chronological, and easy to inspect.
+This site is Jay's living personal archive: work and GitHub activity, notes, reading and learning, places, career history, and current interests. It should feel like a research ledger rather than a portfolio deck: narrow, quiet, chronological, human, and easy to inspect.
 
-The primary visual reference is `pi.website`: off-white paper, serif identity, monospaced body text, underlined navigation, a left timeline spine, and selective black-outlined entries. Do not copy Physical Intelligence branding, logo, copy, research titles, dates, robotics positioning, or exact layout.
+The primary visual reference is `pi.website`: off-white paper, serif identity, monospaced body text, underlined navigation, a left timeline spine, and selective black-outlined entries. Maggie Appleton's site informs the content architecture only: a person should be legible through a garden, library, places, work, career, and dated Now archive. Do not copy either reference's branding, copy, illustrations, or exact layout.
 
 ## 2. Color
 
@@ -24,7 +24,6 @@ The primary visual reference is `pi.website`: off-white paper, serif identity, m
 | Surface/hover | `--panel-hover` | `rgba(255, 255, 255, 0.48)` | Quiet item hover |
 | Surface/faint | `--panel-faint` | `rgba(255, 255, 255, 0.6)` | Secondary featured entries |
 | Shadow/featured | `--shadow-featured` | `3px 3px 0 var(--ink)` | Featured archive entries |
-| Shadow/featured hover | `--shadow-featured-hover` | `5px 5px 0 var(--ink)` | Featured archive hover |
 | Shadow/quiet | `--shadow-quiet` | `3px 3px 0 var(--line)` | Secondary featured entries |
 
 ### Rules
@@ -81,7 +80,7 @@ Spacing derives from a 4px base.
 
 - Max content width uses `--content-width` for archive pages, `--article-width` for long-form articles, and `--article-title-width` for long article titles.
 - Content is left-aligned with a desktop margin near 48px, not centered.
-- Homepage blocks are simple: intro, Work timeline, Notes timeline, Now, Korean summary.
+- Homepage blocks are simple: identity statement, mixed Latest Trail timeline, Garden index, Now, Korean summary.
 - Archive entries use one timeline column on all breakpoints.
 - Mobile width switches to `--mobile-page-left` and `--mobile-content-width`.
 
@@ -120,7 +119,7 @@ Breakpoints are kept as literal media queries because CSS custom properties cann
 ### Header Navigation
 
 - **Structure**: brand link plus landmark `nav`.
-- **Labels**: `Home`, `Work`, `Notes`, `Now`, `About`, `한국어`, `GitHub`.
+- **Labels**: `Home`, `Garden`, `Work`, `Now`, `About`, `한국어`, `GitHub`.
 - **States**: underlined default links, thicker underline on hover/focus/active.
 - **Accessibility**: visible focus state, real links, and a descriptive nav label.
 - **Tokens**: `--nav-gap`, `--nav-gap-mobile`, `--nav-hit`, `--underline-thin`, `--underline-thick`, `--underline-offset`, `--underline-offset-compact`.
@@ -139,28 +138,53 @@ Breakpoints are kept as literal media queries because CSS custom properties cann
 - **Usage**: `Things I'm thinking about` and Notes page.
 - **Text rule**: no long excerpts on list pages.
 
+### Latest Trail
+
+- **Structure**: the Archive Timeline primitive with mixed `Build`, `Note`, `Learning`, `Place`, and `Career` labels.
+- **Purpose**: make recent GitHub work and personal learning visible in one chronological stream.
+- **Content rule**: every row must be grounded in a public repository or a real dated source note; do not invent activity to balance categories.
+
+### Garden Index
+
+- **Structure**: a plain ruled list of `Notes`, `Library`, `Places`, and `Interests`, each with a one-sentence description and real link.
+- **Purpose**: expose the site's content map without introducing a dashboard grid or decorative card system.
+- **States**: underline and row-background feedback on hover/focus; the full row remains readable at phone width.
+
 ### Now Strip
 
 - **Structure**: plain ruled panel with 3-4 plain-language items and one link to `/now/`.
 - **Boundary**: public-safe only. No family, health, employer, finance, account, or private conversation details.
 
-### About Facts
+### About & Career Facts
 
-- **Structure**: three concise facts: what I make, what I'm learning, what I don't publish.
-- **Tone**: human, specific, and non-corporate.
+- **Structure**: concise identity facts plus a dated Career timeline linked from About.
+- **Tone**: human, specific, and non-corporate. Public résumé facts are allowed; internal projects, people, reporting lines, and exact private details are not.
+
+### Article Diagrams
+
+- **Structure**: wide diagrams may use a paired, vertically reflowed mobile source inside `<picture>`.
+- **Legibility rule**: diagram labels must remain readable at phone width; do not shrink a desktop canvas until its text becomes annotation-sized.
+
+### Content Taxonomy
+
+- `Build`: public repositories, shipped tools, and commit-level updates.
+- `Note`: published field notes and operating ideas.
+- `Learning`: books, videos, lectures, and study packs actually processed by Jay.
+- `Place`: broad country/city-level memories only when Jay has approved or previously made the fact public; never exact coordinates, lodging, companions, or private itinerary.
+- `Career`: public résumé-level roles and education only.
+- `Interest`: topic-level curiosity and methods, never raw browsing history, holdings, health, family, or inferred sensitive traits.
 
 ## 6. Motion & Interaction
 
 ### Timing
 
-| Type | Duration | Easing | Usage |
-| --- | --- | --- | --- |
-| Standard | `--motion-fast` (`160ms`) | `--ease-standard` (`ease-in-out`) | Link, card, nav hover |
+State changes are intentionally immediate. The archive should feel like a stable research ledger, without animated card movement or interpolated hover effects.
 
 ### Rules
 
-- Animate only `transform`, `opacity`, `box-shadow`, and color transitions.
-- Respect `prefers-reduced-motion`.
+- Keep every archive card spatially fixed.
+- Use underline weight or quiet background changes for immediate hover/focus feedback.
+- Preserve `prefers-reduced-motion` handling for smooth page scrolling.
 - Every interactive element has hover/focus and active feedback.
 
 ## 7. Depth & Surface

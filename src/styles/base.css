@@ -132,9 +132,6 @@ img {
   text-decoration: underline;
   text-decoration-thickness: var(--underline-thin);
   text-underline-offset: var(--underline-offset);
-  transition:
-    color var(--motion-fast) var(--ease-standard),
-    text-decoration-thickness var(--motion-fast) var(--ease-standard);
 }
 
 .nav a[aria-current="page"],

@@ -1,0 +1,30 @@
+---
+import ArchiveTimeline from '../../components/ArchiveTimeline.astro';
+import { placeItems } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Places - Jay Lee"
+  description="Broad travel memories and travel-archive methods from Jay Lee."
+>
+  <section class="section page-hero">
+    <div class="section-header compact-header">
+      <h1>Places</h1>
+      <p>
+        A deliberately broad travel archive: place, year, and what changed in my thinking. No companions, hotels, exact
+        itinerary, or coordinates.
+      </p>
+    </div>
+    <h2 class="sr-only">Place entries</h2>
+    <ArchiveTimeline items={placeItems} label="Place entries" />
+  </section>
+
+  <section class="section compact-section about-panel" aria-labelledby="places-honesty-title">
+    <h2 id="places-honesty-title">Why the list is short</h2>
+    <p>
+      This page begins with the one 2026 trip that has a clear, public-safe source trail. More places can appear after I can
+      describe them honestly without reconstructing private details from memory.
+    </p>
+  </section>
+</BaseLayout>

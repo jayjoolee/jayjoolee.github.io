@@ -1,9 +1,17 @@
 ---
 import '../styles/global.css';
 
+type NavItem = {
+  readonly href: string;
+  readonly label: string;
+  readonly matches: readonly string[];
+  readonly lang?: string;
+  readonly rel?: string;
+};
+
 const {
-  title = 'Jay Lee - AI Memory and Work Archive',
-  description = "A compact archive of Jay Lee's public-safe notes on AI memory, work systems, and human judgment.",
+  title = 'Jay Lee - Personal Archive',
+  description = "Jay Lee's living archive of work, notes, reading, places, career, and current interests.",
   locale = 'en',
 } = Astro.props;
 
@@ -15,22 +23,39 @@ const currentPath = Astro.url.pathname;
 const siteName = 'Jay Lee';
 const themeColor = '#f5f4ef';
 const hasLocalizedAlternate = currentPath === '/' || currentPath === '/ko/';
-const isActive = (href: string) => {
-  if (href === '/') {
-    return currentPath === '/';
-  }
-
-  return currentPath.startsWith(href);
-};
 const navItems = [
-  { href: isKorean ? '/ko/' : '/', label: isKorean ? '홈' : 'Home' },
-  { href: '/projects/', label: isKorean ? '작업' : 'Work' },
-  { href: '/writing/', label: isKorean ? '노트' : 'Notes' },
-  { href: '/now/', label: 'Now' },
-  { href: '/about/', label: isKorean ? '소개' : 'About' },
-  { href: isKorean ? '/' : '/ko/', label: isKorean ? 'English' : '한국어', lang: isKorean ? 'en' : 'ko' },
-  { href: 'https://github.com/jayjoolee', label: 'GitHub', rel: 'me' },
-];
+  {
+    href: isKorean ? '/ko/' : '/',
+    label: isKorean ? '홈' : 'Home',
+    matches: [isKorean ? '/ko/' : '/'],
+  },
+  {
+    href: '/garden/',
+    label: isKorean ? '가든' : 'Garden',
+    matches: ['/garden/', '/writing/', '/library/', '/places/'],
+  },
+  { href: '/projects/', label: isKorean ? '작업' : 'Work', matches: ['/projects/'] },
+  { href: '/now/', label: 'Now', matches: ['/now/'] },
+  {
+    href: '/about/',
+    label: isKorean ? '소개' : 'About',
+    matches: ['/about/', '/career/'],
+  },
+  {
+    href: isKorean ? '/' : '/ko/',
+    label: isKorean ? 'English' : '한국어',
+    matches: [],
+    lang: isKorean ? 'en' : 'ko',
+  },
+  {
+    href: 'https://github.com/jayjoolee',
+    label: 'GitHub',
+    matches: [],
+    rel: 'me',
+  },
+] satisfies readonly NavItem[];
+const isActive = (item: NavItem) =>
+  item.matches.some((match) => (match === '/' ? currentPath === '/' : currentPath.startsWith(match)));
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -38,12 +63,12 @@ const structuredData = {
   url: site,
   sameAs: ['https://github.com/jayjoolee', 'https://www.linkedin.com/in/jay-joowon-lee-0334501a8/'],
   knowsAbout: [
+    'Human resource development',
+    'AI education',
     'Small AI tools',
-    'Workflow audit',
-    'AI evaluation',
-    'AI memory systems',
-    'Voice-to-note workflows',
-    'Human-agent work systems',
+    'Workflow evaluation',
+    'Personal knowledge systems',
+    'Workplace learning',
   ],
 };
 ---
@@ -74,7 +99,7 @@ const structuredData = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:alt" content="Jay Lee personal archive preview" />
-    <meta property="og:site_name" content="Jay Lee - AI Memory and Work Archive" />
+    <meta property="og:site_name" content="Jay Lee - Personal Archive" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -93,7 +118,7 @@ const structuredData = {
             navItems.map((item) => (
               <a
                 href={item.href}
-                aria-current={item.href.startsWith('/') && isActive(item.href) ? 'page' : undefined}
+                aria-current={isActive(item) ? 'page' : undefined}
                 lang={item.lang}
                 rel={item.rel}
               >
@@ -110,12 +135,12 @@ const structuredData = {
     <footer class="site-footer">
       <span>
         {isKorean
-          ? 'AI 기억, 회의록, 작업 시스템을 공개 가능한 범위에서 정리한 개인 아카이브입니다.'
-          : 'A public-safe archive of AI memory, transcripts, notes, and work systems.'}
+          ? '작업, 배움, 장소, 커리어와 요즘의 질문을 함께 쌓는 개인 아카이브입니다.'
+          : 'A living archive of work, learning, places, career, and changing questions.'}
       </span>
       <span>
+        <a href="/garden/">{isKorean ? '가든' : 'Garden'}</a>
         <a href="/projects/">{isKorean ? '작업' : 'Work'}</a>
-        <a href="/writing/">{isKorean ? '노트' : 'Notes'}</a>
         <a href="/now/">Now</a>
         <a href="/about/">{isKorean ? '소개' : 'About'}</a>
         <a href="https://github.com/jayjoolee/jayjoolee.github.io">Source</a>

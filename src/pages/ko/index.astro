@@ -1,106 +1,103 @@
 ---
+import ArchiveTimeline from '../../components/ArchiveTimeline.astro';
+import GardenIndex from '../../components/GardenIndex.astro';
+import type { ArchiveItem, GardenPath } from '../../data/types';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getWritingItems, withWritingCount } from '../../lib/writing';
 
-const koWorkItems = [
+const writingItems = await getWritingItems();
+
+const koTrail = [
   {
+    slug: 'ko-context-trails',
     title: 'Context Trails',
-    summary: '브라우저 방문 기록에서 요즘의 관심과 활동 변화를 찾아, 사용자가 고친 내용만 AI\u00A0맥락으로 만드는 로컬 도구입니다.',
+    summary: 'AI가 추정한 관심사를 사용자가 직접 검토하고 고치거나 거절한 뒤, 승인한 맥락만 내보내는 로컬 도구입니다.',
     href: 'https://github.com/jayjoolee/context-trails',
+    kind: '만든 것',
+    date: '2026년 7월 18일',
+    dateTime: '2026-07-18',
+    section: 'work',
+    featured: true,
   },
   {
+    slug: 'ko-communication',
+    title: '순서, 기다림, 함께 보기',
+    summary: '대화 심리학 강의를 회의, 리더십, AI 교육에 적용할 수 있는 학습 프레임으로 정리했습니다.',
+    href: '/library/#turn-taking-and-looking-together',
+    kind: '배운 것',
+    date: '2026년 7월 8일',
+    dateTime: '2026-07-08',
+    section: 'learning',
+    featured: false,
+  },
+  {
+    slug: 'ko-ai-memory',
     title: 'AI Memory Contract',
-    summary: 'AI가 사람을 흉내 내는 대신, 더 잘 판단하게 돕는 기억 원칙을 정리한 노트입니다.',
+    summary: 'AI가 사람을 흉내 내는 대신 출처와 경계를 보여주고, 사람이 더 잘 판단하게 돕는 기억 원칙입니다.',
     href: '/writing/ai-memory-contract/',
+    kind: '쓴 것',
+    date: '2026년 6월 29일',
+    dateTime: '2026-06-29',
+    section: 'note',
+    featured: false,
   },
   {
-    title: 'Voice Memo Decision Notes',
-    summary: '실제 녹취나 사적인 대화를 공개하지 않고 음성메모에서 결정과 후속조치를 뽑는 방식입니다.',
-    href: '/writing/voice-memo-to-decision-note/',
+    slug: 'ko-thailand',
+    title: '태국',
+    summary: '신생 시장의 조직과 이문화 학습을 보는 시야를 넓힌 2026년의 업무 여행입니다.',
+    href: '/places/#thailand-2026',
+    kind: '다녀온 곳',
+    date: '2026년',
+    dateTime: '2026-01-01',
+    section: 'place',
+    featured: false,
   },
-  {
-    title: 'AI Workflow Audit Kit',
-    summary: '복잡한 워크플로우를 작은 AI 실험 노트와 평가 기준으로 바꾸는 공개 저장소입니다.',
-    href: 'https://github.com/jayjoolee/ai-workflow-audit-kit',
-  },
-];
+] satisfies readonly ArchiveItem[];
 
-const koNotes = [
-  {
-    title: 'AI memory needs a human-auditable contract',
-    summary: '숨은 캐시처럼 기억하는 대신, 사람이 검토할\u00A0수\u00A0있는 출처와 만료 규칙을 먼저 둡니다.',
-    href: '/writing/ai-memory-contract/',
-    label: 'Memory',
-  },
-  {
-    title: 'Turning voice memos into decision notes without leaking the room',
-    summary: '로컬 음성 기록을 의사결정 노트로 바꾸되, 실제\u00A0대화와 사람 정보는 공개하지 않습니다.',
-    href: '/writing/voice-memo-to-decision-note/',
-    label: 'Audio',
-  },
-];
+const koPathBase = [
+  { title: '노트', body: '도구 뒤에 있는 생각과 운영 원칙', href: '/writing/', count: '0편' },
+  { title: '라이브러리', body: '실제로 읽고 정리한 책, 강의, 학습팩', href: '/library/', count: '6개' },
+  { title: '장소', body: '공개 가능한 범위에서 남긴 여행 기억', href: '/places/', count: '2개' },
+  { title: '커리어', body: '직장과 학업의 공개 이력', href: '/career/', count: '4개' },
+] satisfies readonly GardenPath[];
+
+const koPaths = withWritingCount(koPathBase, `${writingItems.length}편`);
 ---
 
 <BaseLayout
   title="Jay Lee - 개인 아카이브"
-  description="Jay Lee의 작은 AI 도구, 공개 가능한 노트, 현재 관심사를 한국어로 짧게 소개하는 페이지."
+  description="Jay Lee가 만든 것, 읽고 배운 것, 다녀온 곳, 커리어와 요즘의 관심을 함께 쌓는 개인 아카이브."
   locale="ko"
 >
   <section class="section page-hero">
     <div class="section-header compact-header">
-      <h1>한국어 요약</h1>
+      <h1>개인 아카이브</h1>
       <p>
-        이 사이트는 AI가 사람을 흉내 내는 방향이 아니라, 사람이 더 잘 판단하도록 돕는 기억과 작업 시스템을 다루는
-        개인 아카이브입니다. 공개 가능한 산출물과 방법만 남깁니다.
+        저는 HRD와 AI 교육을 하는 실무자이자 작은 도구를 만드는 사람입니다. 이곳에는 작업만이 아니라 무엇을
+        읽고 배우고, 어디에서 시야가 바뀌었고, 요즘 어떤 질문을 붙잡고 있는지도 함께 쌓습니다.
       </p>
     </div>
   </section>
 
-  <section class="section compact-section">
+  <section class="section compact-section" aria-labelledby="ko-trail-title">
     <div class="section-header compact-header">
-      <h2>작업</h2>
-      <p>긴 설명보다 어떤 것을 만들고 있는지 먼저 보이도록 줄였습니다.</p>
+      <h2 id="ko-trail-title">최근 흔적</h2>
+      <p>코드, 노트, 배움, 장소를 하나의 시간축에서 봅니다.</p>
     </div>
-    <div class="archive-timeline">
-      {
-        koWorkItems.map((item) => (
-          <a class="archive-item" href={item.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta"><span>작업</span></span>
-            <strong>{item.title}</strong>
-            <p>{item.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <ArchiveTimeline items={koTrail} label="최근 아카이브 흔적" />
   </section>
 
-  <section class="section compact-section">
+  <section class="section compact-section" aria-labelledby="ko-garden-title">
     <div class="section-header compact-header">
-      <h2>노트</h2>
-      <p>
-        공개 글은 길게 설명하기보다, 어떤 운영 원칙을 배우고&nbsp;있는지 보여주는 쪽에 가깝습니다.
-      </p>
+      <h2 id="ko-garden-title">둘러보기</h2>
+      <p>현재 세부 페이지는 영어로 작성되어 있습니다.</p>
     </div>
-    <div class="archive-timeline quiet-timeline">
-      {
-        koNotes.map((note) => (
-          <a class="archive-item" href={note.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta"><span>{note.label}</span></span>
-            <strong>{note.title}</strong>
-            <p>{note.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <GardenIndex paths={koPaths} />
   </section>
 
   <section class="section language-band">
     <h2>공개 범위</h2>
-    <p>
-      회사, 가족, 건강, 금융, 계정, 비공개 대화 정보는 공개하지 않습니다. 공개되는 것은 방법, 합성 예시, 공개
-      저장소, 그리고 생각의 구조입니다.
-    </p>
+    <p>공개 작업, 넓은 수준의 이력과 장소, 생각의 구조만 남깁니다. 사적인 대화와 정확한 위치, 회사 내부 자료는 싣지 않습니다.</p>
     <a class="standalone-link" href="/">English home</a>
   </section>
 </BaseLayout>

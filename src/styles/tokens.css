@@ -11,11 +11,7 @@
   --panel-hover: rgba(255, 255, 255, 0.48);
   --panel-faint: rgba(255, 255, 255, 0.6);
   --shadow-featured: 3px 3px 0 var(--ink);
-  --shadow-featured-hover: 5px 5px 0 var(--ink);
   --shadow-quiet: 3px 3px 0 var(--line);
-  --motion-fast: 160ms;
-  --ease-standard: ease-in-out;
-  --hover-lift: -1px;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --font-serif: Georgia, "Times New Roman", serif;
@@ -63,7 +59,7 @@
   --header-min-height: 40px;
   --header-gap: clamp(28px, 5vw, 80px);
   --nav-gap: 8px 16px;
-  --nav-gap-mobile: 2px 14px;
+  --nav-gap-mobile: 2px 8px;
   --nav-hit: 24px;
   --nav-pad-y: 2px;
   --underline-thin: 1px;

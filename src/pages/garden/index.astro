@@ -1,0 +1,54 @@
+---
+import ArchiveTimeline from '../../components/ArchiveTimeline.astro';
+import GardenIndex from '../../components/GardenIndex.astro';
+import { gardenPaths, gardenTrailBase, interestItems } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildArchiveTrail, getWritingItems, withWritingCount } from '../../lib/writing';
+
+const writingItems = await getWritingItems();
+const gardenTrail = buildArchiveTrail(gardenTrailBase, writingItems, 7);
+const archivePaths = withWritingCount(gardenPaths, `${writingItems.length} notes`);
+---
+
+<BaseLayout
+  title="Garden - Jay Lee"
+  description="Jay Lee's garden of notes, reading and learning, places, and recurring interests."
+>
+  <section class="section page-hero">
+    <div class="section-header compact-header">
+      <h1>Garden</h1>
+      <p>
+        A place for ideas that are still growing. Notes explain the tools, the Library keeps real learning traces, Places
+        holds broad travel memories, and Interests names the questions that keep returning.
+      </p>
+    </div>
+    <GardenIndex paths={archivePaths} />
+  </section>
+
+  <section class="section compact-section" aria-labelledby="tended-title">
+    <div class="section-header compact-header">
+      <h2 id="tended-title">Recently Tended</h2>
+      <p>Selected entries from 2026, arranged by when they entered the archive.</p>
+    </div>
+    <ArchiveTimeline items={gardenTrail} quiet label="Recently tended garden entries" />
+  </section>
+
+  <section class="section compact-section" id="interests" aria-labelledby="interests-title">
+    <div class="section-header compact-header">
+      <h2 id="interests-title">Recurring Interests</h2>
+      <p>Topic-level curiosities, not a profile inferred from private behavior.</p>
+    </div>
+    <div class="archive-timeline quiet-timeline">
+      {
+        interestItems.map((interest) => (
+          <article class="archive-item">
+            <span class="archive-dot" aria-hidden="true"></span>
+            <span class="archive-meta"><span>Interest</span></span>
+            <strong>{interest.title}</strong>
+            <p>{interest.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

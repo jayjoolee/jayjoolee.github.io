@@ -1,0 +1,21 @@
+---
+import type { GardenPath } from '../data/types';
+
+type Props = {
+  readonly paths: readonly GardenPath[];
+};
+
+const { paths } = Astro.props;
+---
+
+<div class="garden-index">
+  {
+    paths.map((path) => (
+      <a class="garden-path" href={path.href}>
+        <strong>{path.title}</strong>
+        <span class="garden-count">{path.count}</span>
+        <p>{path.body}</p>
+      </a>
+    ))
+  }
+</div>

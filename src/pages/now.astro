@@ -1,65 +1,42 @@
 ---
+import ArchiveTimeline from '../components/ArchiveTimeline.astro';
+import { latestTrailBase, nowGroups } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { nowItems, workItems } from '../data/site';
+import { buildArchiveTrail, getWritingItems } from '../lib/writing';
+
+const writingItems = await getWritingItems();
+const latestTrail = buildArchiveTrail(latestTrailBase, writingItems, 4);
 ---
 
 <BaseLayout
   title="Now - Jay Lee"
-  description="What Jay Lee is building and thinking about now: AI memory, transcript workflows, voice-to-note systems, and public-safe archive work."
+  description="What Jay Lee is building, learning, and practicing in July 2026."
 >
   <section class="section page-hero">
     <div class="section-header compact-header">
-      <h1>Now</h1>
-      <p>A short, public-safe log of current focus. Tools and ideas only, not private conversations or private records.</p>
+      <h1>Now · July 2026</h1>
+      <p>A dated snapshot of what has my attention. It can change without becoming a permanent biography.</p>
     </div>
 
     <div class="now-grid">
-      <section aria-labelledby="building-title">
-        <h2 id="building-title">Building</h2>
-        <ul class="focus-list">
-          {nowItems.map((item) => <li>{item}</li>)}
-        </ul>
-      </section>
-
-      <section aria-labelledby="reading-title">
-        <h2 id="reading-title">Reading for</h2>
-        <p>
-          Practical patterns: how people keep context, check AI outputs, turn rough inputs into useful notes, and decide what
-          should never leave the private workspace.
-        </p>
-      </section>
-    </div>
-  </section>
-
-  <section class="section compact-section" aria-labelledby="open-loops-title">
-    <div class="section-header compact-header">
-      <h2 id="open-loops-title">Connected pieces</h2>
-      <p>
-        If a current focus becomes public, it should land as a small artifact: a repo, a note, or a clear example.
-      </p>
-    </div>
-    <div class="archive-timeline quiet-timeline">
       {
-        workItems.slice(0, 3).map((item) => (
-          <a class:list={['archive-item', item.featured && 'featured']} href={item.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta">
-              <span>{item.kind}</span>
-              <time datetime={item.dateTime}>{item.date}</time>
-            </span>
-            <strong>{item.title}</strong>
-            <p>{item.summary}</p>
-          </a>
+        nowGroups.map((group) => (
+          <section aria-labelledby={`now-${group.title.toLowerCase()}`}>
+            <h2 id={`now-${group.title.toLowerCase()}`}>{group.title}</h2>
+            <ul class="focus-list">
+              {group.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
         ))
       }
     </div>
   </section>
 
-  <section class="section compact-section about-panel" aria-labelledby="now-boundary-title">
-    <h2 id="now-boundary-title">Intentionally absent</h2>
-    <p>
-      No family, health, employer, finance, account, or private conversation details. The public version keeps the pattern
-      and removes the private room.
-    </p>
+  <section class="section compact-section" aria-labelledby="now-trail-title">
+    <div class="section-header compact-header">
+      <h2 id="now-trail-title">What this is becoming</h2>
+      <p>The current interests should leave a trail in code, notes, or study entries, not just stay as a list of claims.</p>
+    </div>
+    <ArchiveTimeline items={latestTrail} quiet label="Current archive trail" />
   </section>
 </BaseLayout>

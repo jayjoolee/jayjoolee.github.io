@@ -1,32 +1,25 @@
 ---
+import ArchiveTimeline from '../../components/ArchiveTimeline.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { noteLinks } from '../../data/site';
+import { getWritingItems } from '../../lib/writing';
+
+const writingItems = await getWritingItems();
 ---
 
 <BaseLayout
   title="Notes - Jay Lee"
-  description="Short public-safe notes from Jay Lee's personal archive: memory, audio workflows, and AI experiments."
+  description="Field notes from Jay Lee's garden on memory, audio workflows, evaluation, and human review."
 >
   <section class="section page-hero">
     <div class="section-header compact-header">
       <h1>Notes</h1>
-      <p>Short public notes. They explain the operating ideas behind the archive without exposing the underlying private room.</p>
+      <p>Published field notes behind the tools. Short enough to revisit, specific enough to change how I build.</p>
     </div>
     <h2 class="sr-only">Note list</h2>
-    <div class="archive-timeline">
-      {
-        noteLinks.map((note) => (
-          <a class:list={['archive-item', note.featured && 'featured']} href={note.href}>
-            <span class="archive-dot" aria-hidden="true"></span>
-            <span class="archive-meta">
-              <span>{note.label}</span>
-              <time datetime={note.dateTime}>{note.date}</time>
-            </span>
-            <strong>{note.title}</strong>
-            <p>{note.summary}</p>
-          </a>
-        ))
-      }
-    </div>
+    <ArchiveTimeline items={writingItems} label="Published notes" />
+  </section>
+
+  <section class="section compact-section language-band">
+    <p>The wider garden also includes what I am <a href="/library/">reading and learning</a> and the <a href="/places/">places</a> I can share.</p>
   </section>
 </BaseLayout>

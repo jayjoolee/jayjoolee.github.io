@@ -1,0 +1,26 @@
+---
+import ArchiveTimeline from '../../components/ArchiveTimeline.astro';
+import { careerItems } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Career - Jay Lee"
+  description="Jay Lee's public résumé-level timeline across HRD, AI education, data, communication, and business."
+>
+  <section class="section page-hero">
+    <div class="section-header compact-header">
+      <h1>Career & Education</h1>
+      <p>
+        The public outline of where I have worked and studied. It explains the background behind the tools without turning
+        internal work into portfolio material.
+      </p>
+    </div>
+    <h2 class="sr-only">Career timeline</h2>
+    <ArchiveTimeline items={careerItems} label="Career and education timeline" />
+  </section>
+
+  <section class="section compact-section language-band">
+    <p>The thread across the timeline is learning: how people build capability, how organizations change, and how data and AI can help without removing judgment.</p>
+  </section>
+</BaseLayout>

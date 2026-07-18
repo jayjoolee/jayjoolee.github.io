@@ -1,0 +1,28 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI workflow audit process for narrow screens</title>
+  <desc id="desc">A vertical monochrome process diagram from source notes through an evaluation gate and public boundary to an inspectable experiment.</desc>
+  <rect width="640" height="640" fill="#F5F4EF"/>
+  <line x1="72" y1="64" x2="72" y2="442" stroke="#D4D3CB" stroke-width="3"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <rect x="64" y="78" width="16" height="16" fill="#111827"/>
+    <text x="112" y="92" fill="#686868" font-size="24">source</text>
+    <text x="112" y="134" fill="#07090D" font-size="32" font-weight="700">Workflow notes</text>
+    <text x="112" y="172" fill="#686868" font-size="22">Owners, inputs, risks,</text>
+    <text x="112" y="204" fill="#686868" font-size="22">and context boundaries.</text>
+
+    <rect x="64" y="270" width="16" height="16" fill="#111827"/>
+    <rect x="106" y="244" width="462" height="122" fill="#FFFFFF" stroke="#07090D" stroke-width="3"/>
+    <rect x="114" y="252" width="462" height="122" fill="none" stroke="#07090D" stroke-width="3"/>
+    <text x="140" y="292" fill="#686868" font-size="24">evaluation</text>
+    <text x="140" y="338" fill="#07090D" font-size="30" font-weight="700">Small cases before claims</text>
+
+    <rect x="64" y="420" width="16" height="16" fill="#111827"/>
+    <text x="112" y="432" fill="#686868" font-size="24">boundary</text>
+    <text x="112" y="476" fill="#07090D" font-size="30" font-weight="700">Synthetic public output</text>
+    <text x="112" y="512" fill="#07090D" font-size="30" font-weight="700">only</text>
+
+    <path d="M112 546H528" stroke="#07090D" stroke-width="3"/>
+    <path d="M506 526L530 546L506 566" stroke="#07090D" stroke-width="3"/>
+    <text x="112" y="604" fill="#07090D" font-size="30" font-weight="700">inspectable experiment</text>
+  </g>
+</svg>

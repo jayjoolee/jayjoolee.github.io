@@ -39,6 +39,10 @@
     padding-right: 0;
   }
 
+  .article {
+    max-width: var(--mobile-content-width);
+  }
+
   .nav {
     gap: var(--nav-gap-mobile);
   }
